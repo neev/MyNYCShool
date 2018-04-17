@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.neeruap.mynycshool.Model.School;
 import com.neeruap.mynycshool.R;
+import com.neeruap.mynycshool.Util.MyNYCSchoolLogs;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
         this.context = context;
         this.schoolList = schoolList;
         this.schoolListNamesPosition = schoolListNamesPosition;
+        MyNYCSchoolLogs.d("called Recycler view adapter");
     }
 
     @NonNull
     @Override
     public SchoolListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        MyNYCSchoolLogs.d("School List Adapter called");
         View view = LayoutInflater.from(context).inflate(R.layout.school_list_card_item_layout, null);
         SchoolListViewHolder homeProductsViewHolder = new SchoolListViewHolder(context, view, schoolList);
         return homeProductsViewHolder;
@@ -35,6 +38,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
     @Override
     public void onBindViewHolder(@NonNull SchoolListViewHolder holder, int position) {
 
+        MyNYCSchoolLogs.d("Value for School list"+ schoolList.get(position).getSchool_name());
         holder.schoolListTextname.setText(schoolList.get(position).getSchool_name());
         holder.schoolListTextGrade.setText(schoolList.get(position).getFinalgrades());
 
@@ -42,6 +46,6 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return schoolList.size();
     }
 }

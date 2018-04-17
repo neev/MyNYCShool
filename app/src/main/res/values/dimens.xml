@@ -5,5 +5,5 @@
     <dimen name="inter_card_half_spacing">4dp</dimen>
     <dimen name="card_padding">8dp</dimen>
 
-    <dimen name="quiz_question_text_size">24sp</dimen>
+    <dimen name="quiz_question_text_size">20sp</dimen>
 </resources>
