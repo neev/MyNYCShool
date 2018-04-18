@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SatscoreActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/schoolname_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="School Name"
+            android:textStyle="bold"
+            android:layout_margin="16dp"
+            android:textSize="@dimen/quiz_question_text_size"
+            android:padding="@dimen/card_padding"/>
+
+        <TextView
+            android:id="@+id/no_of_satTestTakers_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="no of Sat Test takers"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:textSize="16sp"
+            android:padding="@dimen/card_padding"/>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -112,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showResults(List<School> list){
 
-        schoolListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        schoolListRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         schoolListRecyclerView.setItemAnimator( new DefaultItemAnimator());
         schoolListRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         MyNYCSchoolLogs.d("call Recycler view adapter");

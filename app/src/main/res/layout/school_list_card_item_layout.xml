@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/school_list_cardview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+<android.support.v7.widget.CardView
+    android:id="@+id/school_list_cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:background="@color/white"
     android:elevation="5dp"
@@ -14,18 +19,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/card_linear_layout"
         android:orientation="vertical"
         android:padding="@dimen/card_padding"
         tools:background="@color/white">
 
-        <!-- The actual quiz question. -->
+
         <TextView
             android:id="@+id/school_list_text_name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:padding="@dimen/default_margin_padding"
-            tools:text="School Name"
+            tools:text="School Name xxxxxxxxxxxxxx xxx"
             android:textSize="@dimen/quiz_question_text_size"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
 
         <!-- Bottom panel with fake share buttons. -->
@@ -67,6 +75,7 @@
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>
+</LinearLayout>
 
 
 
