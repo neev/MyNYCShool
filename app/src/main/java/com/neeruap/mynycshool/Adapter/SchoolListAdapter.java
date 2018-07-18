@@ -30,7 +30,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
     @Override
     public SchoolListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         MyNYCSchoolLogs.d("School List Adapter called");
-        View view = LayoutInflater.from(context).inflate(R.layout.school_list_card_item_layout, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.school_list_card_item_layout, parent,false);
         SchoolListViewHolder allSchoolListViewHolder = new SchoolListViewHolder(context, view, schoolList);
         return allSchoolListViewHolder;
     }
