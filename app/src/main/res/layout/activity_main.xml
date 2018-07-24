@@ -21,8 +21,12 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
-    <!-- including the bottom sheet -->
-    <include layout="@layout/sat_score_bottom_sheet_layout" />
+
+
+    <!-- including the bottom sheet
+    <include layout="@layout/sat_score_bottom_sheet_layout"
+        />
+        -->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

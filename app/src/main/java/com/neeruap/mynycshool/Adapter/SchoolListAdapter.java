@@ -1,7 +1,15 @@
 package com.neeruap.mynycshool.Adapter;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +50,17 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
         holder.schoolListTextname.setText(schoolList.get(position).getSchool_name());
         holder.schoolListTextGrade.setText(schoolList.get(position).getFinalgrades());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                BottomSheetDialogFragment bottomSheetDialogFragment = new BottomsheetDialog();
+                bottomSheetDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+
+
+            }
+        });
+
     }
 
     @Override
@@ -52,5 +71,40 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
+    }
+
+
+    // bottom sheet class
+
+    public static class BottomsheetDialog extends BottomSheetDialogFragment {
+
+        private BottomSheetBehavior.BottomSheetCallback mBottomSheetBehaviorCallback = new BottomSheetBehavior.BottomSheetCallback() {
+
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    dismiss();
+                }
+
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            }
+        };
+
+        @Override
+        public void setupDialog(Dialog dialog, int style) {
+            super.setupDialog(dialog, style);
+            View contentView = View.inflate(getContext(), R.layout.sat_score_bottom_sheet_layout, null);
+            dialog.setContentView(contentView);
+
+            CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) contentView.getParent()).getLayoutParams();
+            CoordinatorLayout.Behavior behavior = params.getBehavior();
+
+            if (behavior != null && behavior instanceof BottomSheetBehavior) {
+                ((BottomSheetBehavior) behavior).setBottomSheetCallback(mBottomSheetBehaviorCallback);
+            }
+        }
     }
 }
