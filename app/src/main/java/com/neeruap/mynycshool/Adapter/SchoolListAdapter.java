@@ -100,9 +100,13 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
             dialog.setContentView(contentView);
 
             CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) contentView.getParent()).getLayoutParams();
+            params.height = 1000;
             CoordinatorLayout.Behavior behavior = params.getBehavior();
 
+
+
             if (behavior != null && behavior instanceof BottomSheetBehavior) {
+
                 ((BottomSheetBehavior) behavior).setBottomSheetCallback(mBottomSheetBehaviorCallback);
             }
         }
