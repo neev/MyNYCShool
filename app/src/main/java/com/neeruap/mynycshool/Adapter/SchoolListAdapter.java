@@ -3,6 +3,8 @@ package com.neeruap.mynycshool.Adapter;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -44,7 +46,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SchoolListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SchoolListViewHolder holder, final int position) {
 
         MyNYCSchoolLogs.d("Value for School list"+ schoolList.get(position).getSchool_name());
         holder.schoolListTextname.setText(schoolList.get(position).getSchool_name());
@@ -53,6 +55,8 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String selected_school_Id = schoolList.get(position).getDbn();
 
                 BottomSheetDialogFragment bottomSheetDialogFragment = new BottomsheetDialog();
                 bottomSheetDialogFragment.show(((FragmentActivity)context).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
@@ -97,11 +101,16 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListViewHolder
         public void setupDialog(Dialog dialog, int style) {
             super.setupDialog(dialog, style);
             View contentView = View.inflate(getContext(), R.layout.sat_score_bottom_sheet_layout, null);
+            dialog.getWindow().setBackgroundDrawable( new ColorDrawable(android.graphics.Color.TRANSPARENT));
             dialog.setContentView(contentView);
 
             CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) ((View) contentView.getParent()).getLayoutParams();
-            params.height = 1000;
+
+            //params.height = 1000;
+            params.setMargins(50,50,50,50);
+
             CoordinatorLayout.Behavior behavior = params.getBehavior();
+            ((View) contentView.getParent()).setBackgroundColor(Color.TRANSPARENT);
 
 
 
